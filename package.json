@@ -1,7 +1,10 @@
 {
   "name": "@chatpta/jwt-read",
   "version": "3.0.24",
-  "repository": "https://github.com/chatpta/pkg-jwt-read",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chatpta/pkg-jwt-read.git"
+  },
   "description": "Auth utility functions",
   "main": "index.js",
   "scripts": {
