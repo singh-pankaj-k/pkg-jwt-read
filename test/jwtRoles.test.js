@@ -15,6 +15,50 @@ describe( "Lib jwt Roles", function () {
         assert.deepStrictEqual( receivedName, "admin" );
     } );
 
+    it( "jwtSuperAdminRoleCode", function () {
+
+        // Act
+        const receivedCode = jwtRoles.getJwtSuperAdminRoleCode();
+        const receivedName = jwtRoles.getNameOfRoleFromCode( receivedCode );
+
+        // Assert
+        assert.deepStrictEqual( receivedCode, "su" );
+        assert.deepStrictEqual( receivedName, "super admin" );
+    } );
+
+    it( "jwtFacilityAdminRoleCode", function () {
+
+        // Act
+        const receivedCode = jwtRoles.getJwtFacilityAdminRoleCode();
+        const receivedName = jwtRoles.getNameOfRoleFromCode( receivedCode );
+
+        // Assert
+        assert.deepStrictEqual( receivedCode, "fa" );
+        assert.deepStrictEqual( receivedName, "facility admin" );
+    } );
+
+    it( "jwtOrganizationAdminRoleCode", function () {
+
+        // Act
+        const receivedCode = jwtRoles.getJwtOrganizationAdminRoleCode();
+        const receivedName = jwtRoles.getNameOfRoleFromCode( receivedCode );
+
+        // Assert
+        assert.deepStrictEqual( receivedCode, "oa" );
+        assert.deepStrictEqual( receivedName, "organization admin" );
+    } );
+
+    it( "jwtUnitAdminRoleCode", function () {
+
+        // Act
+        const receivedCode = jwtRoles.getJwtUnitAdminRoleCode();
+        const receivedName = jwtRoles.getNameOfRoleFromCode( receivedCode );
+
+        // Assert
+        assert.deepStrictEqual( receivedCode, "ua" );
+        assert.deepStrictEqual( receivedName, "unit admin" );
+    } );
+
     it( "jwtSellerRoleCode", function () {
 
         // Act
