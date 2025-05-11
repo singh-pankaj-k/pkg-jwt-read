@@ -7,7 +7,7 @@ describe( "Lib jwt Roles", function () {
     it( "jwtAdminRoleCode", function () {
 
         // Act
-        const receivedCode = jwtRoles.getJwtAdminRoleCode();
+        const receivedCode = jwtRoles.getCodeFromNameOfRole( "admin" );
         const receivedName = jwtRoles.getNameOfRoleFromCode( receivedCode );
 
         // Assert
@@ -18,108 +18,22 @@ describe( "Lib jwt Roles", function () {
     it( "jwtSuperAdminRoleCode", function () {
 
         // Act
-        const receivedCode = jwtRoles.getJwtSuperAdminRoleCode();
+        const receivedCode = jwtRoles.getCodeFromNameOfRole( "super_admin" );
         const receivedName = jwtRoles.getNameOfRoleFromCode( receivedCode );
 
         // Assert
         assert.deepStrictEqual( receivedCode, "su" );
-        assert.deepStrictEqual( receivedName, "super admin" );
-    } );
-
-    it( "jwtFacilityAdminRoleCode", function () {
-
-        // Act
-        const receivedCode = jwtRoles.getJwtFacilityAdminRoleCode();
-        const receivedName = jwtRoles.getNameOfRoleFromCode( receivedCode );
-
-        // Assert
-        assert.deepStrictEqual( receivedCode, "fa" );
-        assert.deepStrictEqual( receivedName, "facility admin" );
-    } );
-
-    it( "jwtOrganizationAdminRoleCode", function () {
-
-        // Act
-        const receivedCode = jwtRoles.getJwtOrganizationAdminRoleCode();
-        const receivedName = jwtRoles.getNameOfRoleFromCode( receivedCode );
-
-        // Assert
-        assert.deepStrictEqual( receivedCode, "oa" );
-        assert.deepStrictEqual( receivedName, "organization admin" );
-    } );
-
-    it( "jwtUnitAdminRoleCode", function () {
-
-        // Act
-        const receivedCode = jwtRoles.getJwtUnitAdminRoleCode();
-        const receivedName = jwtRoles.getNameOfRoleFromCode( receivedCode );
-
-        // Assert
-        assert.deepStrictEqual( receivedCode, "ua" );
-        assert.deepStrictEqual( receivedName, "unit admin" );
-    } );
-
-    it( "jwtSellerRoleCode", function () {
-
-        // Act
-        const receivedCode = jwtRoles.getJwtSellerRoleCode();
-        const receivedName = jwtRoles.getNameOfRoleFromCode( receivedCode );
-
-        // Assert
-        assert.deepStrictEqual( receivedCode, "se" );
-        assert.deepStrictEqual( receivedName, "seller" );
-    } );
-
-    it( "jwtItemEditorRoleCode", function () {
-
-        // Act
-        const receivedCode = jwtRoles.getJwtEditorRoleCode();
-        const receivedName = jwtRoles.getNameOfRoleFromCode( receivedCode );
-
-        // Assert
-        assert.deepStrictEqual( receivedCode, "ie" );
-        assert.deepStrictEqual( receivedName, "item editor" );
-    } );
-
-    it( "jwtCategoryEditorRoleCode", function () {
-
-        // Act
-        const receivedCode = jwtRoles.getCategoryEditorRoleCode();
-        const receivedName = jwtRoles.getNameOfRoleFromCode( receivedCode );
-
-        // Assert
-        assert.deepStrictEqual( receivedCode, "ce" );
-        assert.deepStrictEqual( receivedName, "category editor" );
-    } );
-
-    it( "jwtPhysicianRoleCode", function () {
-
-        // Act
-        const receivedCode = jwtRoles.getPhysicianRoleCode();
-        const receivedName = jwtRoles.getNameOfRoleFromCode( receivedCode );
-
-        // Assert
-        assert.deepStrictEqual( receivedCode, "ph" );
-        assert.deepStrictEqual( receivedName, "physician" );
-    } );
-
-    it( "jwtEDAdminRoleCode", function () {
-
-        // Act
-        const receivedCode = jwtRoles.getEDAdminRoleCode();
-        const receivedName = jwtRoles.getNameOfRoleFromCode( receivedCode );
-
-        // Assert
-        assert.deepStrictEqual( receivedCode, "ea" );
-        assert.deepStrictEqual( receivedName, "ed admin" );
+        assert.deepStrictEqual( receivedName, "super_admin" );
     } );
 
     it( "jwtDefaultRole", function () {
 
         // Act
-        const receivedName = jwtRoles.getNameOfRoleFromCode( );
+        const receivedCode = jwtRoles.getCodeFromNameOfRole();
+        const receivedName = jwtRoles.getNameOfRoleFromCode();
 
         // Assert
-        assert.deepStrictEqual( receivedName, "user" );
+        assert.deepStrictEqual( receivedCode, "" );
+        assert.deepStrictEqual( receivedName, "" );
     } );
 } );

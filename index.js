@@ -12,12 +12,7 @@ module.exports = {
     verifyJwtAndRole: jwtLib.verifyJwtAndRole,
     throwUsedTokenError: jwtLib.throwUsedTokenError,
     doesJwtUserHasRole: jwtLib.doesJwtUserHasRole,
-    adminRole: jwtRoles.getJwtAdminRoleCode,
-    sellerRole: jwtRoles.getJwtSellerRoleCode,
-    itemEditorRole: jwtRoles.getJwtEditorRoleCode,
-    categoryEditorRole: jwtRoles.getCategoryEditorRoleCode,
-    physicianRole: jwtRoles.getPhysicianRoleCode,
-    edAdminRole: jwtRoles.getEDAdminRoleCode,
-    getNameOfRole: jwtRoles.getNameOfRoleFromCode
+    getNameOfRole: jwtRoles.getNameOfRoleFromCode,
+    getCodeOfRole: jwtRoles.getCodeFromNameOfRole
 };
 
