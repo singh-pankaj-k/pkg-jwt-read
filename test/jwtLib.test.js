@@ -227,6 +227,39 @@ describe( "Lib controller jwt", function () {
         assert.deepStrictEqual( req.jwt.payload.iat, 1642463344278 );
     } );
 
+    it( "verifyWebToken", async function () {
+
+        const webToken = 'eyJhbGciOiJzaGE1MTIiLCJ0eXAiOiJKV1QifQ.eyJpYXQiOjE2NDI0NjMzNDQyNzgsImNsaWVudF9pZCI6IjRmZTg5ODlkLWZlOWQtNDEwMS1hZWVmLTVkYjljYmMwNzlkZiIsInJvbGVzIjpbImFkbWluIl0sImVtYWlsX25vdF9jb25maXJtZWQiOnRydWV9.LDT5gfpjtC3PZ8XdbS4QtdEbUWDY_UH3hbdeEt5dDJqOpH-1pHEUvd2N2QtoYmrPby23-X-Y7Oy-8JiGWjxNuLRpUgePuOJzEz4keYOrUTDCE1tL4vmmFk59eXkg0FILOJypAfZom8BM2iecSXkKK1EFKjo6pHZH8XCA3mpg8Lg';
+
+        // Arrange
+        const req = {
+            get( header ) {
+                if ( header === "AnyCustomName" ) {
+                    return webToken;
+                }
+            }
+        };
+
+        const res = {
+            send( message ) {
+                this.body = message
+            }
+        };
+        const next = () => {
+        }
+
+        function throwBadTokenError() {
+            throw new Error( "Used_Token" );
+        }
+
+        // Act
+        const jwtMiddleware = jwt.verifyWebToken( publicKey, "AnyCustomName", throwBadTokenError );
+        await jwtMiddleware( req, res, next );
+
+        // Assert
+        assert.deepStrictEqual( req.jwt.payload.iat, 1642463344278 );
+    } );
+
     it( "throws error", function () {
 
         // Act
